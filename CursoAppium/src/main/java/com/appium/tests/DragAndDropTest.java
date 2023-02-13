@@ -13,11 +13,11 @@ public class DragAndDropTest extends BaseTest {
 	MenuPage menu = new MenuPage();
 	DragAndDropPage drag = new DragAndDropPage();
 
-	String[] estadoInicial = { "Esta", "é uma lista", "Drag em Drop!", "Faça um clique longo,", "e arraste para",
+	String[] estadoInicial = { "Esta", "Ã© uma lista", "Drag em Drop!", "FaÃ§a um clique longo,", "e arraste para",
 			"qualquer local desejado." };
-	String[] estadoIntermediario = { "é uma lista", "Drag em Drop!", "Faça um clique longo,", "e arraste para",
+	String[] estadoIntermediario = { "Ã© uma lista", "Drag em Drop!", "FaÃ§a um clique longo,", "e arraste para",
 			"qualquer local desejado.", "Esta" };
-	String[] estadoFinal = { "Faça um clique longo,","é uma lista", "Drag em Drop!",  "e arraste para",
+	String[] estadoFinal = { "FaÃ§a um clique longo,","Ã© uma lista", "Drag em Drop!",  "e arraste para",
 			"qualquer local desejado.", "Esta" };
 
 	@Test
@@ -30,7 +30,7 @@ public class DragAndDropTest extends BaseTest {
 		drag.arrastaSolta("Esta", "qualquer local desejado.");
 		assertArrayEquals(estadoIntermediario, drag.listaDeElementos());
 		
-		drag.arrastaSolta("Faça um clique longo,", "é uma lista");
+		drag.arrastaSolta("FaÃ§a um clique longo,", "Ã© uma lista");
 		assertArrayEquals(estadoFinal, drag.listaDeElementos());
 	}
 

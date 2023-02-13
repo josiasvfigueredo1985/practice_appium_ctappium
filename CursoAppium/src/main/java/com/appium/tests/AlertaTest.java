@@ -21,7 +21,7 @@ public class AlertaTest extends BaseTest {
 		page.selecionaAlerta();
 
 		al.clicaAlertaConfirm();
-		assertEquals("Confirma a operação?", al.verificaInfoConfirma());
+		assertEquals("Confirma a operaÃ§Ã£o?", al.verificaInfoConfirma());
 
 		al.confirmarInfo();
 		assertEquals("Confirmado", al.verificaInfoConfirmado());

@@ -18,22 +18,22 @@ public class SwipeListTest extends BaseTest {
 	@Test
 	public void deveVerificarAcoesSwipeList() {
 
-		// swipe até o menu Swipe List
-		menu.esperaExplicita("Formulário");
+		// swipe atï¿½ o menu Swipe List
+		menu.esperaExplicita("FormulÃ¡rio");
 		menu.scrollDown();
 		menu.selecionaSwipeList();
 
-		// fazer um swipe para a esquerda na opção 1
+		// fazer um swipe para a esquerda na opï¿½ï¿½o 1
 		swip.swipeOpcao1();
 		
 		swip.clicarMais();
 		
 		page.esperaImplicita(2);
-		assertTrue(menu.verificaTextoExibido("Opção 1 (+)"));
+		assertTrue(menu.verificaTextoExibido("OpÃ§Ã£o 1 (+)"));
 		
 		swip.swipeResetOpcao1();
 		
-		assertTrue(menu.verificaTextoExibido("Opção 1"));
+		assertTrue(menu.verificaTextoExibido("OpÃ§Ã£o 1"));
 	}
 
 }

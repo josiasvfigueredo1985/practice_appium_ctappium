@@ -6,19 +6,19 @@ public class MenuPage extends BasePage {
 
 	public void selecionaFormulario() {
 		esperaImplicita(5);
-		clicaPorTexto("Formul·rio");
+		clicaPorTexto("Formul√°rio");
 	}
 
-	public void selecionaSeuBarrigaHÌbrido() {
+	public void selecionaSeuBarrigaHibrido() {
 		esperaImplicita(2);
-		clicaPorTexto("SeuBarriga HÌbrido");
+		clicaPorTexto("SeuBarriga H√≠brido");
 	}
-	
+
 	public void selecionaSeuBarrigaNativo() {
 		esperaImplicita(2);
 		clicaPorTexto("SeuBarriga Nativo");
 	}
-	
+
 	public void selecionaSplash() {
 		esperaImplicita(2);
 		clicaPorTexto("Splash");
@@ -38,33 +38,34 @@ public class MenuPage extends BasePage {
 		esperaImplicita(2);
 		clicaPorTexto("Accordion");
 	}
-	
+
 	public void selecionaCliques() {
 		esperaImplicita(2);
 		clicaPorTexto("Cliques");
 	}
-	
+
 	public void selecionaSwipe() {
 		esperaImplicita(2);
 		clicaPorTexto("Swipe");
 	}
-	
+
 	public void selecionaSwipeList() {
 		esperaImplicita(2);
 		clicaPorTexto("Swipe List");
 	}
-	
+
 	public void selecionaDragAndDrop() {
 		esperaImplicita(2);
 		clicaPorTexto("Drag and drop");
 	}
+
 	public void selecionaOpcaoEscondida() {
 		esperaImplicita(2);
-		clicaPorTexto("OpÁ„o bem escondida");
+		clicaPorTexto("Op√ß√£o bem escondida");
 	}
-	
+
 	public void scrollDownTelaMenu() {
-		esperaExplicita("Formul·rio");
+		esperaExplicita("Formul√°rio");
 		scroll(0.9, 0.1);
 	}
 }

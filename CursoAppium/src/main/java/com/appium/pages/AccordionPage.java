@@ -5,50 +5,50 @@ import com.appium.core.BasePage;
 public class AccordionPage extends BasePage {
 
 	public void selecionaOpcao1() {
-		clicaPorTexto("Opção 1");
+		clicaPorTexto("OpÃ§Ã£o 1");
 	}
 
 	public void selecionaOpcao2() {
-		clicaPorTexto("Opção 2");
+		clicaPorTexto("OpÃ§Ã£o 2");
 	}
 
 	public void selecionaOpcao3() {
-		clicaPorTexto("Opção 3");
+		clicaPorTexto("OpÃ§Ã£o 3");
 	}
 
 	public void selecionaOpcao4() {
-		clicaPorTexto("Opção 4");
+		clicaPorTexto("OpÃ§Ã£o 4");
 	}
 
 	public void selecionaOpcao5() {
-		clicaPorTexto("Opção 5");
+		clicaPorTexto("OpÃ§Ã£o 5");
 	}
 
 	public void selecionaOpcao6() {
-		clicaPorTexto("Opção 6");
+		clicaPorTexto("OpÃ§Ã£o 6");
 	}
 
 	public boolean verificaTextoOpcao1() {
-		return verificaTextoExibido("Esta é a descrição da opção 1");
+		return verificaTextoExibido("Esta Ã© a descriÃ§Ã£o da OpÃ§Ã£o 1");
 	}
 
 	public boolean verificaTextoOpcao2() {
-		return verificaTextoExibido("Esta é a descrição da opção 2");
+		return verificaTextoExibido("Esta Ã© a descriÃ§Ã£o da OpÃ§Ã£o 2");
 	}
 
 	public boolean verificaTextoOpcao3() {
-		return verificaTextoExibido("Esta é a descrição da opção 3. Que pode, inclusive ter mais que uma linha");
+		return verificaTextoExibido("Esta Ã© a descriÃ§Ã£o da OpÃ§Ã£o 3. Que pode, inclusive ter mais que uma linha");
 	}
 
 	public boolean verificaTextoOpcao4() {
-		return verificaTextoExibido("Esta é a descrição da opção 4");
+		return verificaTextoExibido("Esta Ã© a descriÃ§Ã£o da OpÃ§Ã£o 4");
 	}
 
 	public boolean verificaTextoOpcao5() {
-		return verificaTextoExibido("Esta é a descrição da opção 5");
+		return verificaTextoExibido("Esta Ã© a descriÃ§Ã£o da OpÃ§Ã£o 5");
 	}
 
 	public boolean verificaTextoOpcao6() {
-		return verificaTextoExibido("Esta é a descrição da opção 6");
+		return verificaTextoExibido("Esta Ã© a descriÃ§Ã£o da OpÃ§Ã£o 6");
 	}
 }

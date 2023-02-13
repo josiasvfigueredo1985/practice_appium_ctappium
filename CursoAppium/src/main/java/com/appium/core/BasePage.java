@@ -51,8 +51,8 @@ public class BasePage extends DriverFactory {
 
 	public String retornaTextoAtributoElemento(String texto) {
 		MobileElement el =  driver.findElement(MobileBy.AccessibilityId(texto));
-		return el.getAttribute("content-desc");// SÛ È possÌvel ler os atributos que contÈm o texto esperado, o elemento retorna um array vazio
-		//caso tentar ler dele diretamente.
+		return el.getAttribute("content-desc");// S√≥ √© poss√≠vel ler os atributos que cont√©m o texto esperado,
+		//o elemento retorna um array vazio caso tentar ler dele diretamente.
 	}
 	
 	public String retornaTextoIndex(int ind) {
@@ -92,7 +92,7 @@ public class BasePage extends DriverFactory {
 	}
 
 	// *[contains(@name,'text')]")
-	// *[starts-swith(@name,'text')]")
+	// *[starts-with(@name,'text')]")
 	public boolean aguardaElementoSumir(String texto) {
 		WebDriverWait wait = new WebDriverWait(driver, 10);
 		return wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@text='" + texto + "']")));
@@ -115,21 +115,21 @@ public class BasePage extends DriverFactory {
 		MobileElement seek = driver.findElementByXPath("//*[@content-desc='" + content_desc + "']");
 
 		int delta = 40;
-		// c·lculo mÈdio da folga entre o limite do elemento slide e o slide de fato
+		// c√°lculo m√©dio da folga entre o limite do elemento slide e o slide de fato
 		// |< >-------------< >|
 		int y = seek.getLocation().y + (seek.getSize().height / 2);
 		// //System.out.println(y);
 
 		int xinicial = seek.getLocation().x + delta;
-		// xinicial = ponto x inicial do elemento = delta (delta È o ponto x + inÌcio do
+		// xinicial = ponto x inicial do elemento = delta (delta ÔøΩ o ponto x + in√≠cio do
 		// elemento do slide de fato)
 		// System.out.println(xinicial);
 		int x = (int) (xinicial + ((seek.getSize().width - (delta * 2))) * pos);
-		// x = x inicial + (largura do elelemento slide inteiro - delta * 2, j· que
-		// devemos considerar a folga nos 2 lados) * posiÁ„o desejada
+		// x = x inicial + (largura do elelemento slide inteiro - delta * 2, jÔøΩ que
+		// devemos considerar a folga nos 2 lados) * posi√ß√£o desejada
 		// System.out.println(x);
 
-		tap(x, y);// mÈtodo criado para executar o tap j· depreciado
+		tap(x, y);// m√©todo criado para executar o tap j√° depreciado
 		// new TouchAction(driver).press(PointOption.point(x,
 		// y)).release().perform();
 	}
@@ -166,7 +166,7 @@ public class BasePage extends DriverFactory {
 
 		new TouchAction(driver).longPress(PointOption.point(x, start_y)).moveTo(PointOption.point(x, end_y))
 				.release().perform();
-		// depereciado > new TouchAction(driver).press(PointOption.point(x,
+		// depreciado > new TouchAction(driver).press(PointOption.point(x,
 		// start_y)).moveTo(PointOption.point(x, end_y)).release().perform();
 	}
 
@@ -181,7 +181,7 @@ public class BasePage extends DriverFactory {
 
 		new TouchAction(driver).longPress(PointOption.point(start_x, y)).moveTo(PointOption.point(end_x, y))
 				.release().perform();
-		// depereciado > new TouchAction(driver).press(PointOption.point(x,
+		// depreciado > new TouchAction(driver).press(PointOption.point(x,
 		// start_y)).moveTo(PointOption.point(x, end_y)).release().perform();
 	}
 
@@ -203,7 +203,7 @@ public class BasePage extends DriverFactory {
 		scroll(0.1, 0.9);
 	}
 
-//$x(ì//input[starts-with(@name,íbtnKí)]î) 
+//$x("//input[starts-with(@name,"btnK")]") 
 	public void swipeList(String texto, double inicio, double fim) {
 		MobileElement opcao = driver.findElementByXPath("//*[starts-with(@text,'" + texto + "')]");
 

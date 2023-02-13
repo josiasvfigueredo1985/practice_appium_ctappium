@@ -19,13 +19,13 @@ public class SplashTest extends BaseTest {
 		// acessar menu splash
 		menu.selecionaSplash();
 
-		// verificar se o splash está sendo exibido
+		// verificar se o splash estï¿½ sendo exibido
 		page.isSplashVisivel();
 
-		// aguardar saída do splash
+		// aguardar saï¿½da do splash
 		page.aguardarSplashSumir();
 
-		// verificar que o formulário está sendo exibido
-		assertTrue(page.verificaElementoPorTexto("Formulário"));
+		// verificar que o formulï¿½rio estï¿½ sendo exibido
+		assertTrue(page.verificaElementoPorTexto("Formulï¿½rio"));
 	}
 }

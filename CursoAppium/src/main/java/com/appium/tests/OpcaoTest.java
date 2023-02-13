@@ -21,7 +21,7 @@ public class OpcaoTest extends BaseTest {
 		op.scrollDownTelaMenu();
 		menu.selecionaOpcaoEscondida();
 		
-		assertTrue(page.verificaElementoPorTexto("Você achou essa opção"));
+		assertTrue(page.verificaElementoPorTexto("Vocï¿½ achou essa opï¿½ï¿½o"));
 		
 		//page.clicaPorTexto("OK");
 	}

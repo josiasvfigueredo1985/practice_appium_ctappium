@@ -13,17 +13,17 @@ public class SBHibridoTest extends BaseTest {
 
 	MenuPage menu = new MenuPage();
 	SBHibridoPage sb = new SBHibridoPage();
-	
+
 	@Test
 	public void deveCadastrarNovousuario() {
-		
-		menu.selecionaSeuBarrigaHíbrido();
+
+		menu.selecionaSeuBarrigaHibrido();
 		sb.esperaImplicita(2);
-		//Digitar email
+		// Digitar email
 		sb.email("josiasvfigueredo@gmail.com");
-		//Digitar Senha
+		// Digitar Senha
 		sb.senha("josias_2022");
-		//Botão Entrar
+		// Botï¿½o Entrar
 		sb.entrar();
 		sb.esperaImplicita(1);
 		assertEquals("Bem vindo, Josias Valentim!", sb.verificaTextoBoasVindas());

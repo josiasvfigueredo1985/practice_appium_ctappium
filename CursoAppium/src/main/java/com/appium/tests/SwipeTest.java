@@ -23,15 +23,15 @@ public class SwipeTest extends BaseTest {
 
 		// Swipe esquerda
 		base.swipeLeft();
-		assertTrue(base.verificaTextoExibido("você consegue"));
+		assertTrue(base.verificaTextoExibido("vocÃª consegue"));
 
-		// Clicar botão
+		// Clicar botï¿½o
 		swip.clicaBotaoDireita();
-		assertTrue(base.verificaTextoExibido("Chegar até o fim!"));
+		assertTrue(base.verificaTextoExibido("Chegar atÃ© o fim!"));
 
 		// Swipe direita
 		base.swipeRight();
-		assertTrue(base.verificaTextoExibido("você consegue"));
+		assertTrue(base.verificaTextoExibido("vocÃª consegue"));
 
 		// Swipe direita
 		base.swipeRight();

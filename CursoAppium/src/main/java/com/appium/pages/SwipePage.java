@@ -6,11 +6,11 @@ public class SwipePage extends BasePage {
 	
 	public void clicaBotaoDireita() {
 		// TODO Auto-generated method stub
-		clicaPorTexto("›"); 
+		clicaPorTexto(">"); 
 	}
 	
 	public void clicaBotaoEsquerda() {
 		// TODO Auto-generated method stub
-		clicaPorTexto("‹");  
+		clicaPorTexto("<");  
 	}
 }
