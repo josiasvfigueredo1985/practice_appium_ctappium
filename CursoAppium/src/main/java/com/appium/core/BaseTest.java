@@ -33,7 +33,7 @@ public class BaseTest extends DriverFactory {
 	public void finalizaAppium() {
 		gerarScreenShot();
 		DriverFactory.killDriver();
-		// Usar para múltiplos testes
+		// Usar para mÃºltiplos testes
 		// DriverFactory.getDriver().resetApp();
 	}
 
@@ -44,7 +44,6 @@ public class BaseTest extends DriverFactory {
 			File imagem = ((TakesScreenshot) DriverFactory.getDriver()).getScreenshotAs(OutputType.FILE);
 			FileUtils.copyFile(imagem, new File("target/screenshots/" + testName.getMethodName() + ".png"));
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

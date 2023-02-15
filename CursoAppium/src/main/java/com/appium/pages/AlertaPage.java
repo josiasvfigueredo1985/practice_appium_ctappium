@@ -5,46 +5,48 @@ import com.appium.core.BasePage;
 public class AlertaPage extends BasePage {
 
 	public void clicaAlertaSimples() {
-		clicaPorTexto("ALERTA SIMPLES");
+		clickElementByXpathText("ALERTA SIMPLES");
 	}
 
 	public void clicaAlertaRestritivo() {
-		clicaPorTexto("ALERTA RESTRITIVO");
+		clickElementByXpathText("ALERTA RESTRITIVO");
 	}
 
 	public void clicaAlertaConfirm() {
-		clicaPorTexto("ALERTA CONFIRM");
+		clickElementByXpathText("ALERTA CONFIRM");
 	}
 
 	public void confirmarInfo() {
-		clicaPorTexto("CONFIRMAR");
+		clickElementByXpathText("CONFIRMAR");
 	}
 
 	public void negarInfo() {
-		clicaPorTexto("NEGAR");
+		clickElementByXpathText("NEGAR");
 	}
 
 	public void sair() {
-		clicaPorTexto("SAIR");
+		clickElementByXpathText("SAIR");
 	}
 
 	public String verificaInfoConfirma() {
-		return retornaTexto("Confirma a operação?");
+		return getTextValue("Confirma a operaÃ§Ã£o?");
 	}
 
 	public String verificaInfoConfirmado() {
-		return retornaTexto("Confirmado");
+		return getTextValue("Confirmado");
 	}
 
 	public String verificaInfoNegado() {
-		return retornaTexto("Negado");
+		return getTextValue("Negado");
 	}
-	
+
 	public void clicaForaDoAlertaSimples() {
-		tapSimple(500,1500);
+		tap(500, 1500);// parentPanel
+		// returnElementXYLocation("content");
 	}
-	
+
 	public boolean verificaAlertaFechado() {
 		return verificaElementoPorTexto("Pode clicar no OK ou fora da caixa para sair");
+
 	}
 }

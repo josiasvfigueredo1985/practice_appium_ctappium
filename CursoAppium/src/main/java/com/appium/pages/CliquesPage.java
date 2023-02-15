@@ -4,22 +4,22 @@ import com.appium.core.BasePage;
 
 public class CliquesPage extends BasePage {
 
-	public void executaCliqueLongo(){
-		cliqueLongo("Clique Longo");
+	public void executaCliqueLongo() {
+		longClickXpathText("Clique Longo");
 	}
-	
-	public void executaCliqueDuplo(){
-		cliqueDuplo("Clique duplo");
+
+	public void executaCliqueDuplo() {
+		doubleClickXpathText("Clique duplo");
 	}
-	
-	public void executaCliqueDuploLento(){
-		cliqueDuploLento("Clique duplo lento");
+
+	public void executaCliqueDuploLento() {
+		slowDoubleClick("Clique duplo lento");
 	}
-	
-	public void executaCliqueLimparLento(){
-		clicaPorTexto("Limpar");
+
+	public void executaCliqueLimparLento() {
+		clickElementByXpathText("Limpar");
 	}
-	
+
 	public boolean verificaCampoCliqueVazio() {
 		return retornaTextoIndex(2).isEmpty();
 	}

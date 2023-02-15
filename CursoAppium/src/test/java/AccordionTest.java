@@ -17,7 +17,7 @@ public class AccordionTest extends BaseTest {
 		// Arrange
 		menu.selecionaAccordion();
 		
-		// Actions
+		// Actions'
 		acc.selecionaOpcao1();
 		
 		// Assertions

@@ -5,19 +5,19 @@ import com.appium.core.BasePage;
 public class SBHibridoPage extends BasePage {
 
 	public void email(String email) {
-		digitaTexto("email", email);
+		inputTextXpathResourceId("email", email);
 	}
+
 	public void senha(String senha) {
-		digitaTexto("senha", senha);
+		inputTextXpathResourceId("senha", senha);
 	}
-	
+
 	public void entrar() {
-		clicaPorAccessibilityId("Entrar");
+		clickByXpathContentDescId("Entrar");
 	}
-	
+
 	public String verificaTextoBoasVindas() {
 		return retornaTextoAtributoElemento("Bem vindo, Josias Valentim!");
 	}
-	
-	
+
 }

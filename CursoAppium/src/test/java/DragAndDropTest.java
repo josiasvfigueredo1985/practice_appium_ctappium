@@ -15,19 +15,19 @@ public class DragAndDropTest extends BaseTest {
 			"qualquer local desejado." };
 	String[] estadoIntermediario = { "é uma lista", "Drag em Drop!", "Faça um clique longo,", "e arraste para",
 			"qualquer local desejado.", "Esta" };
-	String[] estadoFinal = { "Faça um clique longo,","é uma lista", "Drag em Drop!",  "e arraste para",
+	String[] estadoFinal = { "Faça um clique longo,", "é uma lista", "Drag em Drop!", "e arraste para",
 			"qualquer local desejado.", "Esta" };
 
 	@Test
 	public void deveVerificarElementosArrastados() {
 		menu.scrollDownTelaMenu();
 		menu.selecionaDragAndDrop();
-		menu.esperaNormal(500);
+		menu.implicitWaitInMilisecs(500);
 
 		assertArrayEquals(estadoInicial, drag.listaDeElementos());
 		drag.arrastaSolta("Esta", "qualquer local desejado.");
 		assertArrayEquals(estadoIntermediario, drag.listaDeElementos());
-		
+
 		drag.arrastaSolta("Faça um clique longo,", "é uma lista");
 		assertArrayEquals(estadoFinal, drag.listaDeElementos());
 	}

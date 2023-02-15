@@ -27,7 +27,7 @@ public class CliquesTest extends BaseTest {
 		page.selecionaCliques();
 
 		clic.executaCliqueDuplo();
-		page.esperaImplicita(2);
+		page.implicitWaitInSecs(2);
 
 		assertTrue(page.verificaElementoPorTexto("Duplo Clique"));
 	}

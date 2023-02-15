@@ -2,7 +2,9 @@ package com.appium.core;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import io.appium.java_client.MobileElement;
@@ -20,25 +22,32 @@ public class DriverFactory {
 	}
 
 	private static void createDriver() {
-				
-		// TODO Auto-generated method stub
+
+		String APP = Utils.returnCurrentDir() + "/src/main/resources/CTAppium_2_0.apk";
+
 		DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
 		desiredCapabilities.setCapability("platformName", "Android");
-		//desiredCapabilities.setCapability("deviceName", "emulator-5554");
+		desiredCapabilities.setCapability("deviceName", "emulator-5554");
 		desiredCapabilities.setCapability("automationName", "uiautomator2");
-		desiredCapabilities.setCapability("appPackage", "com.ctappium");//com.ctappium
-		desiredCapabilities.setCapability("appActivity", "com.ctappium.MainActivity");//com.ctappium.MainActivity
+		desiredCapabilities.setCapability("appPackage", "com.ctappium");//
+		desiredCapabilities.setCapability("appActivity", "com.ctappium.MainActivity");
 		desiredCapabilities.setCapability("ensureWebviewsHavePages", true);
-
+		// desiredCapabilities.setCapability("app", APP);
+		// desiredCapabilities.setCapability("appPackage",
+		// "com.google.android.permissioncontroller");//
+		// desiredCapabilities.setCapability("appActivity","com.android.packageinstaller.permission.ui.ReviewPermissionsActivity");
+		// In case of set permissions when an app open the first time, just add the
+		// appWaitPackage and appWaitActivity capability to wait the correct app page,
+		// and then after the try block add the click for the permissions page
 		try {
 			driver = new AndroidDriver<MobileElement>(new URL("http://localhost:4723/wd/hub"), desiredCapabilities);
 		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		// driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		// driver.findElement(By.xpath("//android.widget.Button[@text='Continue']")).click();
 	}
 
-	
 	/*
 	 * private static void createTestObjectDriver() {
 	 * 
@@ -56,8 +65,7 @@ public class DriverFactory {
 	 * ), caps); } catch (MalformedURLException e) { // TODO Auto-generated catch
 	 * block e.printStackTrace(); } }
 	 */
-	
-	
+
 	public static void killDriver() {
 		if (driver != null) {
 			driver.quit();

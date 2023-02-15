@@ -1,3 +1,4 @@
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -28,8 +29,8 @@ public class FormularioTest extends BaseTest {
 		form.clicaSalvar();
 
 		// Assertions
-		assertTrue(form.verificaTextoExibido("Josias Valentim"));
-		assertTrue(form.verificaTextoExibido("PS4"));
+		assertTrue(form.validateDisplayedText("Josias Valentim"));
+		assertTrue(form.validateDisplayedText("PS4"));
 		assertTrue(form.verificaCheckBox());
 		assertTrue(form.verificaSwitch());
 		assertFalse(form.verificaBotaoSalvar());
@@ -39,46 +40,44 @@ public class FormularioTest extends BaseTest {
 	public void deveAlterarData() {
 		// Arrange
 		menu.selecionaFormulario();
-		
+
 		// Actions
-		form.clicaPorTexto("01/01/2000");
-		form.clicaPorResourceId("android:id/prev");
-		form.clicaPorTexto("29");
-		page.esperaImplicita(5);
-		form.clicaPorTexto("OK");
+		form.selectCalendar("01/01/2000");
+		form.clickYearSelection();
+		form.selectYear("2000");
+		form.selectDayInCalendar("29");
+		page.implicitWaitInSecs(5);
+		form.clickOKCalendar();
+
 		// Assertions
-		assertTrue(page.verificaTextoExibido("29/1/2000"));
+		assertTrue(page.validateDisplayedText("29/01/2000"));
 	}
 
 	@Test
 	public void deveAlterarHora() {
 		// Arrange
 		menu.selecionaFormulario();
-		
-		//Actions
-		form.clicaPorTexto("06:00");
-		form.clicaPorAccessibilityId("11");
+
+		// Actions
+		form.clickClock();
+		form.clickByXpathContentDescId("11");
 		form.abreTecladoCalendario();
 		form.limpaMinutosCalendario();
 		form.digitaMinutosCalendario("58");
-		page.esperaImplicita(5);
-		form.clicaPorTexto("OK");
+		page.implicitWaitInSecs(5);
+		form.clickElementByXpathText("OK");
 		// Assertions
-		assertTrue(page.verificaTextoExibido("11:58"));
-		System.out.println("Two...minutes to miiiiidniiiight....");
-
+		assertTrue(page.validateDisplayedText("11:58"));
 	}
-	
+
 	@Test
 	public void deveArrastarSeekbar() {
-		
+
 		menu.selecionaFormulario();
-				
 		form.arrastaSeekBar1(0.15);
-		
-		page.esperaImplicita(10);
+		page.implicitWaitInSecs(10);
 		form.clicaSalvar();
 		assertTrue(page.verificaElementoPorTexto("Slider: 15"));
-		
+
 	}
 }

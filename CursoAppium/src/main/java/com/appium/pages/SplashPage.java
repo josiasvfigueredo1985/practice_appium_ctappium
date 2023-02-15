@@ -13,9 +13,9 @@ public class SplashPage extends BasePage {
 	public boolean isSplashVisivel() {
 		return verificaElementoPorTexto("Splash!");
 	}
+
 	public void aguardarSplashSumir() {
-		aguardaElementoSumir("Splash!");
+		waitForElementBeNotVisible("Splash!");
 	}
-	
-	
+
 }

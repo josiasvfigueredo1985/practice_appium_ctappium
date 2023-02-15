@@ -12,26 +12,26 @@ public class SwipeListTest extends BaseTest {
 	private MenuPage menu = new MenuPage();
 	private SwipeListPage swip = new SwipeListPage();
 	private BasePage page = new BasePage();
-	
+
 	@Test
 	public void deveVerificarAcoesSwipeList() {
 
 		// swipe at� o menu Swipe List
-		menu.esperaExplicita("Formulário");
+		menu.explicitWaitXpath("//*[@text='Formulário']");
 		menu.scrollDown();
 		menu.selecionaSwipeList();
 
 		// fazer um swipe para a esquerda na op��o 1
 		swip.swipeOpcao1();
-		
+
 		swip.clicarMais();
-		
-		page.esperaImplicita(2);
-		assertTrue(menu.verificaTextoExibido("Opção 1 (+)"));
-		
+
+		page.implicitWaitInSecs(2);
+		assertTrue(menu.validateDisplayedText("Opção 1 (+)"));
+
 		swip.swipeResetOpcao1();
-		
-		assertTrue(menu.verificaTextoExibido("Opção 1"));
+
+		assertTrue(menu.validateDisplayedText("Opção 1"));
 	}
 
 }
