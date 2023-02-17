@@ -29,26 +29,27 @@ public class AccordionPage extends BasePage {
 	}
 
 	public boolean verificaTextoOpcao1() {
-		return validateDisplayedText("Esta é a descrição da opção 1");
+		return validateElementExistenceByText_2("Esta é a descrição da opção 1");
 	}
 
 	public boolean verificaTextoOpcao2() {
-		return validateDisplayedText("Esta é a descrição da opção 2");
+		return validateElementExistenceByText_2("Esta é a descrição da opção 2");
 	}
 
 	public boolean verificaTextoOpcao3() {
-		return validateDisplayedText("Esta é a descrição da opção 3. Que pode, inclusive ter mais que uma linha");
+		return validateElementExistenceByText_2(
+				"Esta é a descrição da opção 3. Que pode, inclusive ter mais que uma linha");
 	}
 
 	public boolean verificaTextoOpcao4() {
-		return validateDisplayedText("Esta é a descrição da opção 4");
+		return validateElementExistenceByText_2("Esta é a descrição da opção 4");
 	}
 
 	public boolean verificaTextoOpcao5() {
-		return validateDisplayedText("Esta é a descrição da opção 5");
+		return validateElementExistenceByText_2("Esta é a descrição da opção 5");
 	}
 
 	public boolean verificaTextoOpcao6() {
-		return validateDisplayedText("Esta é a descrição da opção 6");
+		return validateElementExistenceByText_2("Esta é a descrição da opção 6");
 	}
 }

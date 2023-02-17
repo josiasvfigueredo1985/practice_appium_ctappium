@@ -17,7 +17,7 @@ public class SBHibridoPage extends BasePage {
 	}
 
 	public String verificaTextoBoasVindas() {
-		return retornaTextoAtributoElemento("Bem vindo, Josias Valentim!");
+		return getTextByAttribute("Bem vindo, Josias Valentim!");
 	}
 
 }

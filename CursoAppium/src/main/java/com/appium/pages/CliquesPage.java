@@ -21,6 +21,6 @@ public class CliquesPage extends BasePage {
 	}
 
 	public boolean verificaCampoCliqueVazio() {
-		return retornaTextoIndex(2).isEmpty();
+		return getTextByXpathIndex(2).isEmpty();
 	}
 }

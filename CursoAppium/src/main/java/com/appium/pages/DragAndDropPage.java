@@ -6,7 +6,7 @@ public class DragAndDropPage extends BasePage {
 
 	//
 	public String[] listaDeElementos() {
-		String[] lista = retornaListaElementosPorClasse("android.widget.TextView");
+		String[] lista = getElementsListByClassName("android.widget.TextView");
 		return lista;
 	}
 }

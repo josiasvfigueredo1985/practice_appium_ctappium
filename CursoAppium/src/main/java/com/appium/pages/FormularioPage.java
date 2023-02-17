@@ -40,7 +40,7 @@ public class FormularioPage extends BasePage {
 	}
 
 	public void limpaMinutosCalendario() {
-		limpaTexto("android:id/input_minute");
+		cleanInputField("android:id/input_minute");
 	}
 
 	public boolean verificaCheckBox() {

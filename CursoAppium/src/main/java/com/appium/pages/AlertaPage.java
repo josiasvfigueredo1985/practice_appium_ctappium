@@ -29,15 +29,15 @@ public class AlertaPage extends BasePage {
 	}
 
 	public String verificaInfoConfirma() {
-		return getTextValue("Confirma a operação?");
+		return getTextByXpathText("Confirma a operação?");
 	}
 
 	public String verificaInfoConfirmado() {
-		return getTextValue("Confirmado");
+		return getTextByXpathText("Confirmado");
 	}
 
 	public String verificaInfoNegado() {
-		return getTextValue("Negado");
+		return getTextByXpathText("Negado");
 	}
 
 	public void clicaForaDoAlertaSimples() {
@@ -46,7 +46,7 @@ public class AlertaPage extends BasePage {
 	}
 
 	public boolean verificaAlertaFechado() {
-		return verificaElementoPorTexto("Pode clicar no OK ou fora da caixa para sair");
+		return validateElementExistenceByText("Pode clicar no OK ou fora da caixa para sair");
 
 	}
 }

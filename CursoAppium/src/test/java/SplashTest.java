@@ -24,6 +24,6 @@ public class SplashTest extends BaseTest {
 		page.aguardarSplashSumir();
 
 		// verificar que o formul�rio est� sendo exibido
-		assertTrue(page.verificaElementoPorTexto("Formul�rio"));
+		assertTrue(page.validateElementExistenceByText("Formulário"));
 	}
 }

@@ -13,10 +13,10 @@ public class AbasPage extends BasePage {
 	}
 
 	public boolean verificaTextoAba1() {
-		return validateDisplayedText("Este é o conteúdo da Aba 1");
+		return validateElementExistenceByText_2("Este é o conteúdo da Aba 1");
 	}
 
 	public boolean verificaTextoAba2() {
-		return validateDisplayedText("Este é o conteúdo da Aba 2");
+		return validateElementExistenceByText_2("Este é o conteúdo da Aba 2");
 	}
 }

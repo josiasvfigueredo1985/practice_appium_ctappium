@@ -27,11 +27,11 @@ public class SwipeListTest extends BaseTest {
 		swip.clicarMais();
 
 		page.implicitWaitInSecs(2);
-		assertTrue(menu.validateDisplayedText("Opção 1 (+)"));
+		assertTrue(menu.validateElementExistenceByText_2("Opção 1 (+)"));
 
 		swip.swipeResetOpcao1();
 
-		assertTrue(menu.validateDisplayedText("Opção 1"));
+		assertTrue(menu.validateElementExistenceByText_2("Opção 1"));
 	}
 
 }

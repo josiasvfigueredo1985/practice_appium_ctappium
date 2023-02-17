@@ -25,10 +25,10 @@ public class DragAndDropTest extends BaseTest {
 		menu.implicitWaitInMilisecs(500);
 
 		assertArrayEquals(estadoInicial, drag.listaDeElementos());
-		drag.arrastaSolta("Esta", "qualquer local desejado.");
+		drag.dragAndDrop("Esta", "qualquer local desejado.");
 		assertArrayEquals(estadoIntermediario, drag.listaDeElementos());
 
-		drag.arrastaSolta("Faça um clique longo,", "é uma lista");
+		drag.dragAndDrop("Faça um clique longo,", "é uma lista");
 		assertArrayEquals(estadoFinal, drag.listaDeElementos());
 	}
 

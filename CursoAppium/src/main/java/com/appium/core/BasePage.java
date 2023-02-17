@@ -4,7 +4,8 @@ import static io.appium.java_client.touch.TapOptions.tapOptions;
 import static io.appium.java_client.touch.offset.ElementOption.element;
 import java.util.List;
 
-import io.appium.java_client.TouchAction;
+// Deprecated -> import io.appium.java_client.TouchAction;
+
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -14,6 +15,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.android.AndroidTouchAction;
 import io.appium.java_client.touch.offset.ElementOption;
 import io.appium.java_client.touch.offset.PointOption;
 
@@ -83,20 +85,20 @@ public class BasePage extends DriverFactory {
 	public void longClickXpathText(String text) {
 		MobileElement el = driver.findElementByXPath("//*[@text='" + text + "']");
 		Point x = el.getCenter();
-		TouchAction longClick = new TouchAction(driver);
+		AndroidTouchAction longClick = new AndroidTouchAction(driver);
 		longClick.longPress(PointOption.point(x)).perform();
 	}
 
 	public void doubleClickXpathText(String text) {
 		MobileElement el = driver.findElementByXPath("//*[@text='" + text + "']");
-		TouchAction doubleClick = new TouchAction(driver);
+		AndroidTouchAction doubleClick = new AndroidTouchAction(driver);
 		doubleClick.tap(tapOptions().withElement(ElementOption.element(el)).withTapsCount(2)).perform();
 	}
 
 	public void slowDoubleClick(String text) {
 		MobileElement el = driver.findElementByXPath("//*[@text='" + text + "']");
 		Point x = el.getCenter();
-		TouchAction longDoubleClick = new TouchAction(driver);
+		AndroidTouchAction longDoubleClick = new AndroidTouchAction(driver);
 		longDoubleClick.press(PointOption.point(x)).release().perform();
 		implicitWaitInMilisecs(500);
 		longDoubleClick.press(PointOption.point(x)).release().perform();
@@ -110,7 +112,7 @@ public class BasePage extends DriverFactory {
 
 	// region Taps
 	public void tap(int x1, int y1) {
-		TouchAction tap = new TouchAction(driver);
+		AndroidTouchAction tap = new AndroidTouchAction(driver);
 		tap.press(PointOption.point(x1, y1)).release().perform();
 
 	}
@@ -128,9 +130,9 @@ public class BasePage extends DriverFactory {
 		int start_x = (int) (size.width * inicio);
 		int end_x = (int) (size.width * fim);
 
-		TouchAction swipe = new TouchAction(driver);
+		AndroidTouchAction swipe = new AndroidTouchAction(driver);
 		swipe.longPress(PointOption.point(start_x, y)).moveTo(PointOption.point(end_x, y)).release().perform();
-		// depreciado > new TouchAction(driver).press(PointOption.point(x,
+		// depreciado > new AndroidTouchAction(driver).press(PointOption.point(x,
 		// start_y)).moveTo(PointOption.point(x, end_y)).release().perform();
 	}
 
@@ -142,8 +144,8 @@ public class BasePage extends DriverFactory {
 		swipe(0.1, 0.9);
 	}
 
-	public void swipeList(String texto, double inicio, double fim) {
-		MobileElement opcao = driver.findElementByXPath("//*[starts-with(@text,'" + texto + "')]");
+	public void swipeList(String text, double inicio, double fim) {
+		MobileElement opcao = driver.findElementByXPath("//*[starts-with(@text,'" + text + "')]");
 
 		int start_x = (int) ((opcao.getCenter().x * 2) * inicio);
 		// System.out.println(start_x);
@@ -154,7 +156,7 @@ public class BasePage extends DriverFactory {
 		int y = opcao.getCenter().y;
 		// System.out.println(y);
 
-		TouchAction swipeList = new TouchAction(driver);
+		AndroidTouchAction swipeList = new AndroidTouchAction(driver);
 		swipeList.longPress(PointOption.point(start_x, y)).moveTo(PointOption.point(end_x, y))
 				.release().perform();
 	}
@@ -176,26 +178,34 @@ public class BasePage extends DriverFactory {
 	// endregion
 
 	// region Returns
-	public String getTextValue(String texto) {
-		return driver.findElement(By.xpath("//*[@text='" + texto + "']")).getText();
+	public String getTextByXpathText(String text) {
+		return driver.findElement(By.xpath("//*[@text='" + text + "']")).getText();
 	}
 
-	public String retornaTextoContentDesc(String texto) {
-		return driver.findElement(By.xpath("//*[@content-desc='" + texto + "']")).getText();
+	public String getTextByXpathContentDesc(String text) {
+		return driver.findElement(By.xpath("//*[@content-desc='" + text + "']")).getText();
 	}
 
-	public String retornaTextoAtributoElemento(String texto) {
-		MobileElement el = driver.findElement(MobileBy.AccessibilityId(texto));
+	public String getTextByAttribute(String text) {
+		MobileElement el = driver.findElement(MobileBy.AccessibilityId(text));
 		return el.getAttribute("content-desc");
-		// Só é possível ler os atributos que contém o texto esperado,
+		// Só é possível ler os atributos que contém o text esperado,
 		// o elemento retorna um array vazio caso tentar ler dele diretamente.
 	}
 
-	public String retornaTextoIndex(int ind) {
+	public String getTextByXpathIndex(int ind) {
 		return driver.findElement(By.xpath("//*[@index='" + ind + "']")).getText();
 	}
 
-	public int[] returnElementXYLocationXpath(String fullXPath) {
+	public String getTextByXpath(String fullPath) {
+		return driver.findElement(By.xpath(fullPath)).getText();
+	}
+
+	public String getTextById(String id) {
+		return driver.findElement(By.id(id)).getText();
+	}
+
+	public int[] getElementXYLocationXpath(String fullXPath) {
 		explicitWaitXpath(fullXPath);
 		MobileElement seek = driver.findElement(By.xpath(fullXPath));
 		// First we get the element location
@@ -211,7 +221,7 @@ public class BasePage extends DriverFactory {
 		return crdnts;
 	}
 
-	public String[] retornaListaElementosPorClasse(String classe) {
+	public String[] getElementsListByClassName(String classe) {
 		List<MobileElement> elements = driver.findElements(By.className(classe));
 
 		String[] retorno = new String[elements.size()];
@@ -225,20 +235,30 @@ public class BasePage extends DriverFactory {
 	// endregion
 
 	// region Clean Inputs
-	public void limpaTexto(String id) {
+	public void cleanInputField(String id) {
 		driver.findElementByXPath("//*[@resource-id='" + id + "']").clear();
 	}
 	// endregion
 
 	// region Validations
-	public boolean verificaElementoPorTexto(String texto) {
-		List<MobileElement> elementos = driver.findElements(By.xpath("//*[@text='" + texto + "']"));
+	public boolean validateElementExistenceByText(String text) {
+		List<MobileElement> elementos = driver.findElements(By.xpath("//*[@text='" + text + "']"));
 		return elementos.size() > 0;
 	}
 
-	public boolean validateDisplayedText(String textName) {
+	public boolean validateElementExistenceByText_2(String textName) {
 
 		return driver.findElementByXPath("//*[@text='" + textName + "']").getAttribute("displayed").equals("true");
+	}
+
+	public boolean validateElementExistenceByXpath(String fullXPath) {
+
+		return driver.findElementByXPath(fullXPath).getAttribute("displayed").equals("true");
+	}
+
+	public boolean validateElementExistenceById(String id) {
+
+		return driver.findElementById(id).getAttribute("displayed").equals("true");
 	}
 	// endregion
 
@@ -291,7 +311,7 @@ public class BasePage extends DriverFactory {
 		// System.out.println(x);
 
 		tap(x, y);// método criado para executar o tap já depreciado
-		// new TouchAction(driver).press(PointOption.point(x,
+		// new AndroidTouchAction(driver).press(PointOption.point(x,
 		// y)).release().perform();
 	}
 
@@ -307,9 +327,9 @@ public class BasePage extends DriverFactory {
 		int start_y = (int) (size.height * inicio);
 		int end_y = (int) (size.height * fim);
 
-		TouchAction scrol = new TouchAction(driver);
+		AndroidTouchAction scrol = new AndroidTouchAction(driver);
 		scrol.longPress(PointOption.point(x, start_y)).moveTo(PointOption.point(x, end_y)).release().perform();
-		// depreciado > new TouchAction(driver).press(PointOption.point(x,
+		// depreciado > new AndroidTouchAction(driver).press(PointOption.point(x,
 		// start_y)).moveTo(PointOption.point(x, end_y)).release().perform();
 	}
 
@@ -323,11 +343,11 @@ public class BasePage extends DriverFactory {
 	// endregion
 
 	// region Drang and Drops
-	public void arrastaSolta(String origem, String destino) {
+	public void dragAndDrop(String origem, String destino) {
 		MobileElement inicio = driver.findElement(By.xpath("//*[@text='" + origem + "']"));
 		MobileElement fim = driver.findElement(By.xpath("//*[@text='" + destino + "']"));
 
-		TouchAction dragDrop = new TouchAction(driver);
+		AndroidTouchAction dragDrop = new AndroidTouchAction(driver);
 		dragDrop.longPress(element(inicio)).moveTo(element(fim)).release().perform();
 	}
 

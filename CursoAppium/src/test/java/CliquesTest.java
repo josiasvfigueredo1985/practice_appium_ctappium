@@ -19,7 +19,7 @@ public class CliquesTest extends BaseTest {
 
 		clic.executaCliqueLongo();
 
-		assertTrue(page.verificaElementoPorTexto("Clique Longo"));
+		assertTrue(page.validateElementExistenceByText("Clique Longo"));
 	}
 
 	@Test
@@ -29,7 +29,7 @@ public class CliquesTest extends BaseTest {
 		clic.executaCliqueDuplo();
 		page.implicitWaitInSecs(2);
 
-		assertTrue(page.verificaElementoPorTexto("Duplo Clique"));
+		assertTrue(page.validateElementExistenceByText("Duplo Clique"));
 	}
 
 	@Test
@@ -38,7 +38,7 @@ public class CliquesTest extends BaseTest {
 
 		clic.executaCliqueDuploLento();
 
-		assertTrue(page.verificaElementoPorTexto("Duplo Clique lento"));
+		assertTrue(page.validateElementExistenceByText("Duplo Clique lento"));
 	}
 
 	@Test

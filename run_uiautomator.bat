@@ -1,0 +1,3 @@
+start cmd /k "uiautomatorviewer"
+
+

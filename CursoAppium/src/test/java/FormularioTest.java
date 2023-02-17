@@ -29,8 +29,8 @@ public class FormularioTest extends BaseTest {
 		form.clicaSalvar();
 
 		// Assertions
-		assertTrue(form.validateDisplayedText("Josias Valentim"));
-		assertTrue(form.validateDisplayedText("PS4"));
+		assertTrue(form.validateElementExistenceByText_2("Josias Valentim"));
+		assertTrue(form.validateElementExistenceByText_2("PS4"));
 		assertTrue(form.verificaCheckBox());
 		assertTrue(form.verificaSwitch());
 		assertFalse(form.verificaBotaoSalvar());
@@ -50,7 +50,7 @@ public class FormularioTest extends BaseTest {
 		form.clickOKCalendar();
 
 		// Assertions
-		assertTrue(page.validateDisplayedText("29/01/2000"));
+		assertTrue(page.validateElementExistenceByText_2("29/01/2000"));
 	}
 
 	@Test
@@ -67,7 +67,7 @@ public class FormularioTest extends BaseTest {
 		page.implicitWaitInSecs(5);
 		form.clickElementByXpathText("OK");
 		// Assertions
-		assertTrue(page.validateDisplayedText("11:58"));
+		assertTrue(page.validateElementExistenceByText_2("11:58"));
 	}
 
 	@Test
@@ -77,7 +77,7 @@ public class FormularioTest extends BaseTest {
 		form.arrastaSeekBar1(0.15);
 		page.implicitWaitInSecs(10);
 		form.clicaSalvar();
-		assertTrue(page.verificaElementoPorTexto("Slider: 15"));
+		assertTrue(page.validateElementExistenceByText("Slider: 15"));
 
 	}
 }
