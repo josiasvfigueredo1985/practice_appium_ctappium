@@ -34,3 +34,6 @@ Appium 2: https://www.youtube.com/watch?v=xB_nF6hKocg&list=PL0jj4QpaE1wp-e_EzRPx
 Appium 3: https://www.youtube.com/watch?v=tQNAvcslBy8&list=PL0jj4QpaE1wp-e_EzRPxYIPKVl601RpcL&index=3
 
 To run this test code, you must to start Appium Server
+First install the Appium server
+Then install the Appium via npm with the command: npm install -g appium
+In th terminal, bat or code, run "appium" to start the server

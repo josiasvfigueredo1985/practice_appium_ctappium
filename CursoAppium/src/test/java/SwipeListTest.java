@@ -21,7 +21,7 @@ public class SwipeListTest extends BaseTest {
 		menu.scrollDown();
 		menu.selecionaSwipeList();
 
-		// fazer um swipe para a esquerda na op��o 1
+		// fazer um swipe para a esquerda na opção 1
 		swip.swipeOpcao1();
 
 		swip.clicarMais();

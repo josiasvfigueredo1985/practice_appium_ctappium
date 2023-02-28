@@ -16,14 +16,12 @@ public class SBHibridoTest extends BaseTest {
 	public void deveCadastrarNovousuario() {
 
 		menu.selecionaSeuBarrigaHibrido();
-		sb.implicitWaitInSecs(2);
 		// Digitar email
 		sb.email("josiasvfigueredo@gmail.com");
 		// Digitar Senha
 		sb.senha("josias_2022");
 		// Bot�o Entrar
 		sb.entrar();
-		sb.implicitWaitInSecs(1);
 		assertEquals("Bem vindo, Josias Valentim!", sb.verificaTextoBoasVindas());
 
 	}

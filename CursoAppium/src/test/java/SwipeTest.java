@@ -1,3 +1,4 @@
+
 import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 import com.appium.core.BasePage;
@@ -21,7 +22,7 @@ public class SwipeTest extends BaseTest {
 		base.swipeLeft();
 		assertTrue(base.validateElementExistenceByText_2("você consegue"));
 
-		// Clicar bot�o
+		// Clicar botão
 		swip.clicaBotaoDireita();
 		assertTrue(base.validateElementExistenceByText_2("Chegar até o fim!"));
 

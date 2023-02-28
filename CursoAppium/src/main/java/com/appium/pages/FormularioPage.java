@@ -56,7 +56,7 @@ public class FormularioPage extends BasePage {
 	}
 
 	public void arrastaSeekBar1(double x) {
-		slideSeekBar("//*[@content-desc='slid']",
+		slideSeekBar("//android.view.ViewGroup[@content-desc='slid']/android.view.ViewGroup[1]",
 				"//android.view.ViewGroup[@content-desc='slid']/android.view.ViewGroup[2]", x);
 	}
 

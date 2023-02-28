@@ -41,7 +41,7 @@ public class AlertaPage extends BasePage {
 	}
 
 	public void clicaForaDoAlertaSimples() {
-		tap(500, 1500);// parentPanel
+		tap(13, 2000);// parentPanel
 		// returnElementXYLocation("content");
 	}
 

@@ -1,6 +1,8 @@
 
 import static org.junit.Assert.assertTrue;
 
+import java.io.UnsupportedEncodingException;
+
 import org.junit.Test;
 
 import com.appium.core.BaseTest;
@@ -25,5 +27,4 @@ public class AbasTest extends BaseTest {
 		// Assertions
 		assertTrue(aba.verificaTextoAba2());
 	}
-	
 }

@@ -7,14 +7,14 @@ import java.util.List;
 // Deprecated -> import io.appium.java_client.TouchAction;
 
 import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.Point;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidTouchAction;
 import io.appium.java_client.touch.offset.ElementOption;
 import io.appium.java_client.touch.offset.PointOption;
@@ -23,10 +23,55 @@ public class BasePage extends DriverFactory {
 
 	BaseTest baseTest = new BaseTest();
 
+	// #region Utils
+	public void writeText(By by, String texto) {
+		getDriver().findElement(by).sendKeys(texto);
+	}
+
+	public String getText(By by) {
+		return getDriver().findElement(by).getText();
+	}
+
+	public void click(By by) {
+		getDriver().findElement(by).click();
+	}
+
+	public void clickByText(String texto) {
+		click(By.xpath("//*[@text='" + texto + "']"));
+	}
+
+	public void selectCombo(By by, String valor) {
+		getDriver().findElement(by).click();
+		clickByText(valor);
+	}
+
+	public boolean verifyIfIsChecked(By by) {
+		return getDriver().findElement(by).getAttribute("checked").equals("true");
+	}
+
+	public boolean verifyElementByText(String texto) {
+		List<MobileElement> elementos = getDriver().findElements(By.xpath("//*[@text='" + texto + "']"));
+		return elementos.size() > 0;
+	}
+
+	public String getAlertTitle() {
+		return getText(By.id("android:id/alertTitle"));
+	}
+
+	public String getAlertText() {
+		return getText(By.id("android:id/message"));
+	}
+	// #endregion
+
 	// region Waits
 	public void explicitWaitXpath(String fullXpath) {
 		WebDriverWait wait = new WebDriverWait(driver, 10);
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(fullXpath)));
+	}
+
+	public void explicitWaitByXpathText(String text) {
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@text='" + text + "']")));
 	}
 
 	public void implicitWaitInMilisecs(long milisec) {
@@ -55,7 +100,16 @@ public class BasePage extends DriverFactory {
 
 	// region Clicks
 	public void clickElementByXpathText(String text) {
-		driver.findElement(By.xpath("//*[@text='" + text + "']")).click();
+		System.out.println("texto " + text);
+		explicitWaitByXpathText(text);
+		try {
+			MobileElement el = driver.findElement(By.xpath("//*[@text='" + text + "']"));
+			el.click();
+		} catch (Exception e) {
+			WebElement el = driver.findElement(By.xpath("//*[@text='" + text + "']"));
+			el.click();
+		}
+
 	}
 
 	public void clickByElementCoordinatesXpathText(String text) {
@@ -111,9 +165,12 @@ public class BasePage extends DriverFactory {
 	// endregion
 
 	// region Taps
-	public void tap(int x1, int y1) {
-		AndroidTouchAction tap = new AndroidTouchAction(driver);
-		tap.press(PointOption.point(x1, y1)).release().perform();
+	public void tap(int x, int y) {
+		// AndroidTouchAction tap = new AndroidTouchAction(driver);
+		// tap.press(PointOption.point(x1, y1)).perform();
+
+		TouchAction touchAction = new TouchAction(driver);
+		touchAction.tap(PointOption.point(x, y)).perform();
 
 	}
 
@@ -187,8 +244,7 @@ public class BasePage extends DriverFactory {
 	}
 
 	public String getTextByAttribute(String text) {
-		MobileElement el = driver.findElement(MobileBy.AccessibilityId(text));
-		return el.getAttribute("content-desc");
+		return driver.findElement(By.xpath("//*[@text='" + text + "']")).getText();
 		// Só é possível ler os atributos que contém o text esperado,
 		// o elemento retorna um array vazio caso tentar ler dele diretamente.
 	}
@@ -264,11 +320,10 @@ public class BasePage extends DriverFactory {
 
 	// region Seek Bars
 	public void setSeekBarToZero(String fullXpathElement) {
-		// MobileElement el =
-		// driver.findElementByXPath(("(//*[@class='android.view.ViewGroup'])[1]"));
 		MobileElement el = driver.findElementByXPath((fullXpathElement));
-		Point x2 = el.getCenter();
-		tap(0, x2.getX());
+		Point c = el.getCenter();
+		int y = c.getY();
+		tap(0, y);
 	}
 
 	public int returnSeekBarButtonDeltaPosition(String fullXpathSlideButton, String fullXpathSeekBar) {
@@ -283,6 +338,7 @@ public class BasePage extends DriverFactory {
 		String bounds = btn.getAttribute("bounds");
 		// Convert the value to int
 		int delta = Integer.parseInt(bounds.substring(8, 10));
+		// System.out.println("Delta "+delta);
 		return delta;
 	}
 
@@ -297,7 +353,7 @@ public class BasePage extends DriverFactory {
 																								// folga entre o limite
 																								// do elemento slide e o
 																								// slide de fato
-																								// |< >-------------< >|
+		// System.out.println("Delta "+delta); // |< >-------------< >|
 		int y = seek.getLocation().y + (seek.getSize().height / 2);
 		// //System.out.println(y);
 
