@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>br.com.sosimple</groupId>
-	<artifactId>CursoAppium</artifactId>
+	<artifactId>Appium_Course</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
@@ -25,7 +25,7 @@
 			<artifactId>commons-io</artifactId>
 			<version>2.11.0</version>
 		</dependency>
-	
+
 		<!--
 		https://mvnrepository.com/artifact/com.aventstack/extentreports -->
 		<dependency>
