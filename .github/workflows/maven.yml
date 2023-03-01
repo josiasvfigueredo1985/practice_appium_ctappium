@@ -40,5 +40,5 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: test_results
-        path: ${{ github.workspace }}/site/*.html
+        path: ${{ github.workspace }}/target/site/*.html
         retention-days: 5
