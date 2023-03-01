@@ -35,4 +35,4 @@ jobs:
         profile: pixel_xl
         cores: 2
         ram-size: 4096M
-        script: mvn clean test
+        script: mvn site
