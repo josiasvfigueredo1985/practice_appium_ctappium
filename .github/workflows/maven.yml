@@ -32,5 +32,5 @@ jobs:
         api-level: ${{ matrix.api-level }}
         target: ${{ matrix.target }}
         arch: x86_64
-        profile: Pixel XL
+        profile: pixel_xl
         script: mvn clean test -Pandroid
