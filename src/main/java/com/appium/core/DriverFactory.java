@@ -33,7 +33,7 @@ public class DriverFactory {
 		// desiredCapabilities.setCapability("appPackage", "com.ctappium");//
 		// desiredCapabilities.setCapability("appActivity",
 		// "com.ctappium.MainActivity");
-		desiredCapabilities.setCapability("platformVersion", "8.0");
+		// desiredCapabilities.setCapability("platformVersion", "8.0");
 		desiredCapabilities.setCapability("autoGrantPermissions", true);
 		desiredCapabilities.setCapability("ensureWebviewsHavePages", true);
 		desiredCapabilities.setCapability("noReset", true);

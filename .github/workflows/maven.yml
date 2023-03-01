@@ -11,7 +11,7 @@ jobs:
     runs-on: macos-latest
     strategy:
       matrix:
-        api-level: [30]
+        api-level: [29]
         target: [default]
     steps:
     - uses: actions/checkout@v3
@@ -32,4 +32,5 @@ jobs:
         api-level: ${{ matrix.api-level }}
         target: ${{ matrix.target }}
         arch: x86_64
+        profile: Pixel XL
         script: mvn clean test -Pandroid
