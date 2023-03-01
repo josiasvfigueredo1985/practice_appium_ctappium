@@ -2,3 +2,4 @@ target/screenshots/*
 target/surefire-reports/*
 target/maven-status/maven-compiler-plugin/compile/default-compile/*
 target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/*
+target/site/*
