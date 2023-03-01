@@ -28,10 +28,13 @@ public class DriverFactory {
 		DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
 		desiredCapabilities.setCapability("platformName", "Android");
 		desiredCapabilities.setCapability("deviceName", "Android Emulator");
-		desiredCapabilities.setCapability("automationName", "uiautomator2");
+		desiredCapabilities.setCapability("automationName", "UiAutomator1");// uiautomator2
 		desiredCapabilities.setCapability("app", APP);
-		desiredCapabilities.setCapability("appPackage", "com.ctappium");//
-		desiredCapabilities.setCapability("appActivity", "com.ctappium.MainActivity");
+		// desiredCapabilities.setCapability("appPackage", "com.ctappium");//
+		// desiredCapabilities.setCapability("appActivity",
+		// "com.ctappium.MainActivity");
+		desiredCapabilities.setCapability("platformVersion", "8.0");
+		desiredCapabilities.setCapability("autoGrantPermissions", true);
 		desiredCapabilities.setCapability("ensureWebviewsHavePages", true);
 		desiredCapabilities.setCapability("noReset", true);
 		desiredCapabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, AutomationName.ANDROID_UIAUTOMATOR2);
