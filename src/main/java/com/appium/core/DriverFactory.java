@@ -27,8 +27,8 @@ public class DriverFactory {
 
 		DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
 		desiredCapabilities.setCapability("platformName", "Android");
-		desiredCapabilities.setCapability("deviceName", "emulator-5554");
-		desiredCapabilities.setCapability("automationName", "uiautomator2");
+		desiredCapabilities.setCapability("deviceName", "Android Emulator");
+		desiredCapabilities.setCapability("automationName", "UiAutomator2");
 		desiredCapabilities.setCapability("app", APP);
 		desiredCapabilities.setCapability("appPackage", "com.ctappium");//
 		desiredCapabilities.setCapability("appActivity", "com.ctappium.MainActivity");
