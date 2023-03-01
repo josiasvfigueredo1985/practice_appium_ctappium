@@ -36,3 +36,9 @@ jobs:
         cores: 2
         ram-size: 4096M
         script: mvn site
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v3
+      with:
+        name: test_results
+        path: ${{ github.workspace }}/site/*.html
+        retention-days: 5
