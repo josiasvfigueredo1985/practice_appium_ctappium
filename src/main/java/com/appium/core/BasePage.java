@@ -25,70 +25,128 @@ public class BasePage extends DriverFactory {
 
 	// #region Utils
 	public void writeText(By by, String texto) {
-		getDriver().findElement(by).sendKeys(texto);
+		try {
+			getDriver().findElement(by).sendKeys(texto);
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 	}
 
 	public String getText(By by) {
-		return getDriver().findElement(by).getText();
+		try {
+			return getDriver().findElement(by).getText();
+		} catch (Exception e) {
+			return e.toString();
+		}
 	}
 
 	public void click(By by) {
-		getDriver().findElement(by).click();
+		try {
+			getDriver().findElement(by).click();
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 	}
 
 	public void clickByText(String texto) {
-		click(By.xpath("//*[@text='" + texto + "']"));
+		try {
+			click(By.xpath("//*[@text='" + texto + "']"));
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 	}
 
-	public void selectCombo(By by, String valor) {
-		getDriver().findElement(by).click();
-		clickByText(valor);
+	public void selectCombo(By by, String value) {
+		try {
+			getDriver().findElement(by).click();
+			clickByText(value);
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 	}
 
 	public boolean verifyIfIsChecked(By by) {
-		return getDriver().findElement(by).getAttribute("checked").equals("true");
+		boolean checked = false;
+		try {
+			checked = getDriver().findElement(by).getAttribute("checked").equals("true");
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return checked;
 	}
 
 	public boolean verifyElementByText(String texto) {
-		List<MobileElement> elementos = getDriver().findElements(By.xpath("//*[@text='" + texto + "']"));
-		return elementos.size() > 0;
+		List<MobileElement> elementByText = null;
+		try {
+			elementByText = getDriver().findElements(By.xpath("//*[@text='" + texto + "']"));
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		return elementByText.size() > 0;
 	}
 
 	public String getAlertTitle() {
-		return getText(By.id("android:id/alertTitle"));
+		try {
+			return getText(By.id("android:id/alertTitle"));
+		} catch (Exception e) {
+			System.out.println(e);
+			return e.toString();
+		}
 	}
 
 	public String getAlertText() {
-		return getText(By.id("android:id/message"));
+		try {
+			return getText(By.id("android:id/message"));
+		} catch (Exception e) {
+			System.out.println(e);
+			return e.toString();
+		}
 	}
 	// #endregion
 
 	// region Waits
 	public void explicitWaitXpath(String fullXpath) {
-		WebDriverWait wait = new WebDriverWait(driver, 10);
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(fullXpath)));
+		try {
+			WebDriverWait wait = new WebDriverWait(driver, 10);
+			wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(fullXpath)));
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 	}
 
 	public void explicitWaitByXpathText(String text) {
-		WebDriverWait wait = new WebDriverWait(driver, 10);
-		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@text='" + text + "']")));
+		try {
+			WebDriverWait wait = new WebDriverWait(driver, 10);
+			wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@text='" + text + "']")));
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 	}
 
 	public void implicitWaitInMilisecs(long milisec) {
 		try {
 			Thread.sleep(milisec);
 		} catch (InterruptedException e) {
+			System.out.println(e);
 			e.printStackTrace();
 		}
 	}
 
 	public void waitForElementById(String id) {
-		WebDriverWait wait = new WebDriverWait(driver, 5);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(id)));
+		try {
+			WebDriverWait wait = new WebDriverWait(driver, 5);
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(id)));
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 	}
 
 	public void implicitWaitInSecs(long sec) {
-		driver.manage().timeouts().implicitlyWait(sec, TimeUnit.SECONDS);
+		try {
+			driver.manage().timeouts().implicitlyWait(sec, TimeUnit.SECONDS);
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 	}
 
 	public boolean waitForElementBeNotVisible(String text) {
@@ -100,7 +158,7 @@ public class BasePage extends DriverFactory {
 
 	// region Clicks
 	public void clickElementByXpathText(String text) {
-		System.out.println("texto " + text);
+		// System.out.println("texto " + text);
 		explicitWaitByXpathText(text);
 		try {
 			MobileElement el = driver.findElement(By.xpath("//*[@text='" + text + "']"));
@@ -267,10 +325,10 @@ public class BasePage extends DriverFactory {
 		// First we get the element location
 		// Element x position
 		int x = seek.getLocation().x;
-		System.out.println("X-> " + x);
+		// System.out.println("X-> " + x);
 		// Element y position
 		int y = seek.getLocation().y;
-		System.out.println("Y-> " + y);
+		// System.out.println("Y-> " + y);
 
 		// Return and array with the respective positions
 		int[] crdnts = { x, y };

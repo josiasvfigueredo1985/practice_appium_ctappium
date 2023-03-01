@@ -33,4 +33,4 @@ jobs:
         target: ${{ matrix.target }}
         arch: x86_64
         profile: pixel_xl
-        script: mvn clean test -Pandroid
+        script: mvn clean test

@@ -10,6 +10,8 @@ import org.junit.rules.TestName;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
+import com.aventstack.extentreports.model.Device;
+
 public class BaseTest extends DriverFactory {
 
 	public BaseTest() {
