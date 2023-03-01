@@ -2,6 +2,7 @@ package com.appium.core;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.TimeZone;
 
 import org.openqa.selenium.remote.DesiredCapabilities;
 
@@ -26,6 +27,7 @@ public class DriverFactory {
 		String APP = Utils.returnCurrentDir() + "/src/test/java/resources/CTAppium_2_0.apk";
 
 		DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
+		desiredCapabilities.setCapability("timezone", "UTC-03:00");
 		desiredCapabilities.setCapability("platformName", "Android");
 		desiredCapabilities.setCapability("deviceName", "Android Emulator");
 		desiredCapabilities.setCapability("automationName", "UiAutomator2");// uiautomator2
