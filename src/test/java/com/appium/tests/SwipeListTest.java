@@ -1,9 +1,9 @@
 package com.appium.tests;
+
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import com.appium.core.BasePage;
 import com.appium.core.BaseTest;
 import com.appium.pages.MenuPage;
 import com.appium.pages.SwipeListPage;
@@ -12,13 +12,12 @@ public class SwipeListTest extends BaseTest {
 
 	private MenuPage menu = new MenuPage();
 	private SwipeListPage swip = new SwipeListPage();
-	private BasePage page = new BasePage();
 
 	@Test
 	public void deveVerificarAcoesSwipeList() {
 
-		// swipe at� o menu Swipe List
-		menu.explicitWaitXpath("//*[@text='Formulário']");
+		// swipe até o menu Swipe List
+		menu.waitForPresenceOfElement("//*[@text='Formulário']");
 		menu.scrollDown();
 		menu.selecionaSwipeList();
 
@@ -27,12 +26,10 @@ public class SwipeListTest extends BaseTest {
 
 		swip.clicarMais();
 
-		page.implicitWaitInSecs(2);
-		assertTrue(menu.validateElementExistenceByText_2("Opção 1 (+)"));
+		assertTrue(menu.checkIfElementIsDisplayedByText("Opção 1 (+)"));
 
 		swip.swipeResetOpcao1();
 
-		assertTrue(menu.validateElementExistenceByText_2("Opção 1"));
+		assertTrue(menu.checkIfElementIsDisplayedByText("Opção 1"));
 	}
-
 }

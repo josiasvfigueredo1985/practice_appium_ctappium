@@ -70,11 +70,11 @@ public class SwipeListPage extends BasePage {
 	}
 
 	public void clicarMais() {
-		clickByElementCoordinatesXpathText("(+)");
+		clickCoordinatesByText("(+)");
 	}
 
 	public void clicarMenos() {
-		clickByElementCoordinatesXpathText("(-)");
+		clickCoordinatesByText("(-)");
 	}
 
 }

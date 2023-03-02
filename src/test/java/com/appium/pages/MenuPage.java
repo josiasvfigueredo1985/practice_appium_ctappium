@@ -5,67 +5,68 @@ import com.appium.core.BasePage;
 public class MenuPage extends BasePage {
 
 	public void selecionaFormulario() {
-		implicitWaitInSecs(5);
-		clickElementByXpathText("Formulário");
+		clickByText("Formulário");
+		implicitWaitInMilisec(500);
 	}
 
 	public void selecionaSeuBarrigaHibrido() {
-		implicitWaitInSecs(2);
-		clickElementByXpathText("SeuBarriga Híbrido");
+		clickByText("SeuBarriga Híbrido");
+		implicitWaitInMilisec(500);
 	}
 
 	public void selecionaSeuBarrigaNativo() {
-		implicitWaitInSecs(2);
-		clickElementByXpathText("SeuBarriga Nativo");
+		clickByText("SeuBarriga Nativo");
+		implicitWaitInMilisec(500);
 	}
 
 	public void selecionaSplash() {
-		implicitWaitInSecs(2);
-		clickElementByXpathText("Splash");
+		clickByText("Splash");
+		implicitWaitInMilisec(500);
 	}
 
 	public void selecionaAlerta() {
-		implicitWaitInSecs(2);
-		clickElementByXpathText("Alertas");
+		clickByText("Alertas");
+		implicitWaitInMilisec(500);
 	}
 
 	public void selecionaAbas() {
-		implicitWaitInSecs(2);
-		clickElementByXpathText("Abas");
+		clickByText("Abas");
+		implicitWaitInMilisec(500);
 	}
 
 	public void selecionaAccordion() {
-		implicitWaitInSecs(2);
-		clickElementByXpathText("Accordion");
+		clickByText("Accordion");
+		implicitWaitInMilisec(500);
 	}
 
 	public void selecionaCliques() {
-		implicitWaitInSecs(2);
-		clickElementByXpathText("Cliques");
+		clickByText("Cliques");
+		implicitWaitInMilisec(500);
 	}
 
 	public void selecionaSwipe() {
-		implicitWaitInSecs(2);
-		clickElementByXpathText("Swipe");
+		clickByText("Swipe");
+		implicitWaitInMilisec(500);
 	}
 
 	public void selecionaSwipeList() {
-		implicitWaitInSecs(2);
-		clickElementByXpathText("Swipe List");
+		clickByText("Swipe List");
+		implicitWaitInMilisec(500);
 	}
 
 	public void selecionaDragAndDrop() {
-		implicitWaitInSecs(2);
-		clickElementByXpathText("Drag and drop");
+		clickByText("Drag and drop");
+		implicitWaitInMilisec(500);
 	}
 
 	public void selecionaOpcaoEscondida() {
-		implicitWaitInSecs(2);
-		clickElementByXpathText("Opção bem escondida");
+		clickByText("Opção bem escondida");
+		implicitWaitInMilisec(500);
 	}
 
 	public void scrollDownTelaMenu() {
-		explicitWaitXpath("//*[@text='Formulário']");
+		waitForPresenceOfElement("//*[@text='Formulário']");
 		scroll(0.9, 0.1);
+		implicitWaitInMilisec(500);
 	}
 }

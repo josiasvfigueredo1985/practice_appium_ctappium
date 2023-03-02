@@ -5,18 +5,20 @@ import com.appium.core.BasePage;
 public class AbasPage extends BasePage {
 
 	public void clicarAba1() {
-		clickElementByXpathText("Aba 1");
+		clickByText("Aba 1");
+		implicitWaitInMilisec(500);
 	}
 
 	public void clicarAba2() {
-		clickElementByXpathText("Aba 2");
+		clickByText("Aba 2");
+		implicitWaitInMilisec(500);
 	}
 
 	public boolean verificaTextoAba1() {
-		return validateElementExistenceByText_2("Este é o conteúdo da Aba 1");
+		return checkIfElementIsDisplayedByText("Este é o conteúdo da Aba 1");
 	}
 
 	public boolean verificaTextoAba2() {
-		return validateElementExistenceByText_2("Este é o conteúdo da Aba 2");
+		return checkIfElementIsDisplayedByText("Este é o conteúdo da Aba 2");
 	}
 }

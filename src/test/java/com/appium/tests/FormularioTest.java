@@ -1,4 +1,5 @@
 package com.appium.tests;
+
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -29,8 +30,8 @@ public class FormularioTest extends BaseTest {
 		form.clicaSalvar();
 
 		// Assertions
-		assertTrue(form.validateElementExistenceByText_2("Josias Valentim"));
-		assertTrue(form.validateElementExistenceByText_2("PS4"));
+		assertTrue(form.checkIfElementIsDisplayedByText("Josias Valentim"));
+		assertTrue(form.checkIfElementIsDisplayedByText("PS4"));
 		assertTrue(form.verificaCheckBox());
 		assertTrue(form.verificaSwitch());
 		assertFalse(form.verificaBotaoSalvar());
@@ -46,11 +47,10 @@ public class FormularioTest extends BaseTest {
 		form.clickYearSelection();
 		form.selectYear("2000");
 		form.selectDayInCalendar("29");
-		page.implicitWaitInSecs(5);
 		form.clickOKCalendar();
 
 		// Assertions
-		assertTrue(page.validateElementExistenceByText_2("29/01/2000"));
+		assertTrue(page.checkIfElementIsDisplayedByText("29/01/2000"));
 	}
 
 	@Test
@@ -64,10 +64,10 @@ public class FormularioTest extends BaseTest {
 		form.abreTecladoCalendario();
 		form.limpaMinutosCalendario();
 		form.digitaMinutosCalendario("58");
-		page.implicitWaitInSecs(5);
-		form.clickElementByXpathText("OK");
+		page.implicitWaitInSec(5);
+		form.clickByText("OK");
 		// Assertions
-		assertTrue(page.validateElementExistenceByText_2("11:58"));
+		assertTrue(page.checkIfElementIsDisplayedByText("11:58"));
 	}
 
 	@Test
@@ -75,9 +75,8 @@ public class FormularioTest extends BaseTest {
 
 		menu.selecionaFormulario();
 		form.arrastaSeekBar1(0.15);
-		page.implicitWaitInSecs(10);
 		form.clicaSalvar();
-		assertTrue(page.validateElementExistenceByText("Slider: 15"));
+		assertTrue(page.checkIfElementExistsByText("Slider: 15"));
 
 	}
 }

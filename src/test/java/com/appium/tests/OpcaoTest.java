@@ -1,4 +1,5 @@
 package com.appium.tests;
+
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
@@ -20,7 +21,7 @@ public class OpcaoTest extends BaseTest {
 		op.scrollDownTelaMenu();
 		menu.selecionaOpcaoEscondida();
 
-		assertTrue(page.validateElementExistenceByText("Você achou essa opção"));
+		assertTrue(page.checkIfElementExistsByText("Você achou essa opção"));
 
 		// page.clicaPorTexto("OK");
 	}

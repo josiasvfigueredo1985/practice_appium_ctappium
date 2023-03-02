@@ -5,27 +5,33 @@ import com.appium.core.BasePage;
 public class AlertaPage extends BasePage {
 
 	public void clicaAlertaSimples() {
-		clickElementByXpathText("ALERTA SIMPLES");
+		clickByText("ALERTA SIMPLES");
+		implicitWaitInMilisec(500);
 	}
 
 	public void clicaAlertaRestritivo() {
-		clickElementByXpathText("ALERTA RESTRITIVO");
+		clickByText("ALERTA RESTRITIVO");
+		implicitWaitInMilisec(500);
 	}
 
 	public void clicaAlertaConfirm() {
-		clickElementByXpathText("ALERTA CONFIRM");
+		clickByText("ALERTA CONFIRM");
+		implicitWaitInMilisec(500);
 	}
 
 	public void confirmarInfo() {
-		clickElementByXpathText("CONFIRMAR");
+		clickByText("CONFIRMAR");
+		implicitWaitInMilisec(500);
 	}
 
 	public void negarInfo() {
-		clickElementByXpathText("NEGAR");
+		clickByText("NEGAR");
+		implicitWaitInMilisec(500);
 	}
 
 	public void sair() {
-		clickElementByXpathText("SAIR");
+		clickByText("SAIR");
+		implicitWaitInMilisec(500);
 	}
 
 	public String verificaInfoConfirma() {
@@ -46,7 +52,7 @@ public class AlertaPage extends BasePage {
 	}
 
 	public boolean verificaAlertaFechado() {
-		return validateElementExistenceByText("Pode clicar no OK ou fora da caixa para sair");
+		return checkIfElementExistsByText("Pode clicar no OK ou fora da caixa para sair");
 
 	}
 }

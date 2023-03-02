@@ -1,4 +1,5 @@
 package com.appium.tests;
+
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
@@ -20,7 +21,7 @@ public class CliquesTest extends BaseTest {
 
 		clic.executaCliqueLongo();
 
-		assertTrue(page.validateElementExistenceByText("Clique Longo"));
+		assertTrue(page.checkIfElementExistsByText("Clique Longo"));
 	}
 
 	@Test
@@ -28,9 +29,8 @@ public class CliquesTest extends BaseTest {
 		page.selecionaCliques();
 
 		clic.executaCliqueDuplo();
-		page.implicitWaitInSecs(2);
 
-		assertTrue(page.validateElementExistenceByText("Duplo Clique"));
+		assertTrue(page.checkIfElementExistsByText("Duplo Clique"));
 	}
 
 	@Test
@@ -39,7 +39,7 @@ public class CliquesTest extends BaseTest {
 
 		clic.executaCliqueDuploLento();
 
-		assertTrue(page.validateElementExistenceByText("Duplo Clique lento"));
+		assertTrue(page.checkIfElementExistsByText("Duplo Clique lento"));
 	}
 
 	@Test

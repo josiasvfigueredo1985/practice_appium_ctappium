@@ -1,27 +1,30 @@
 package com.appium.pages;
 
+import org.openqa.selenium.By;
+
 import com.appium.core.BasePage;
 
 public class SBHibridoPage extends BasePage {
 
 	public void email(String email) {
-		explicitWaitXpath("//*[@resource-id='email']");
+		waitForPresenceOfElement("//*[@resource-id='email']");
 		inputTextXpathResourceId("email", email);
 	}
 
 	public void senha(String senha) {
-		explicitWaitXpath("//*[@resource-id='senha']");
+		waitForPresenceOfElement("//*[@resource-id='senha']");
 		inputTextXpathResourceId("senha", senha);
 	}
 
 	public void entrar() {
-		explicitWaitXpath("//*[@text='Entrar']");
-		clickElementByXpathText("Entrar");
+		click(By.xpath("//*[@text='Entrar']"));
+		implicitWaitInMilisec(500);
 	}
 
 	public String verificaTextoBoasVindas() {
-		explicitWaitByXpathText("Bem vindo, Josias Valentim!");
-		return getTextByAttribute("Bem vindo, Josias Valentim!");
+		String txt = "Bem vindo, Josias Valentim!";
+		waitForPresenceOfElement("//*[@text='" + txt + "']");
+		return getTextByAttribute(txt);
 	}
 
 }

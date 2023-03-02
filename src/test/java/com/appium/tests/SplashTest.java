@@ -1,4 +1,5 @@
 package com.appium.tests;
+
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
@@ -18,13 +19,13 @@ public class SplashTest extends BaseTest {
 		// acessar menu splash
 		menu.selecionaSplash();
 
-		// verificar se o splash est� sendo exibido
+		// verificar se o splash está sendo exibido
 		page.isSplashVisivel();
 
-		// aguardar sa�da do splash
+		// aguardar saída do splash
 		page.aguardarSplashSumir();
 
-		// verificar que o formul�rio est� sendo exibido
-		assertTrue(page.validateElementExistenceByText("Formulário"));
+		// verificar que o formulário está sendo exibido
+		assertTrue(page.checkIfElementExistsByText("Formulário"));
 	}
 }

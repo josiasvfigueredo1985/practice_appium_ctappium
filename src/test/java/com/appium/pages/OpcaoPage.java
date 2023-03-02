@@ -5,7 +5,9 @@ import com.appium.core.BasePage;
 public class OpcaoPage extends BasePage {
 
 	public void scrollDownTelaMenu() {
-		explicitWaitXpath("//*[@text='Formulário']");
+		waitForPresenceOfElement("//*[@text='Formulário']");
 		scroll(0.9, 0.1);
+		implicitWaitInMilisec(500);
+
 	}
 }

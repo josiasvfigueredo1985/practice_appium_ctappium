@@ -1,4 +1,5 @@
 package com.appium.tests;
+
 import static org.junit.Assert.assertArrayEquals;
 
 import org.junit.Test;
@@ -23,7 +24,6 @@ public class DragAndDropTest extends BaseTest {
 	public void deveVerificarElementosArrastados() {
 		menu.scrollDownTelaMenu();
 		menu.selecionaDragAndDrop();
-		menu.implicitWaitInMilisecs(500);
 
 		assertArrayEquals(estadoInicial, drag.listaDeElementos());
 		drag.dragAndDrop("Esta", "qualquer local desejado.");

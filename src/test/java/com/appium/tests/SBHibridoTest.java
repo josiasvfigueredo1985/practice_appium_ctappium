@@ -19,7 +19,7 @@ public class SBHibridoTest extends BaseTest {
 		sb.email("josiasvfigueredo@gmail.com");
 		// Digitar Senha
 		sb.senha("josias_2022");
-		// Bot�o Entrar
+		// Botão Entrar
 		sb.entrar();
 		assertEquals("Bem vindo, Josias Valentim!", sb.verificaTextoBoasVindas());
 

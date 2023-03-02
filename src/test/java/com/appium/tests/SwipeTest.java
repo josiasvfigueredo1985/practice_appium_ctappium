@@ -17,22 +17,22 @@ public class SwipeTest extends BaseTest {
 	public void deveVerificarMensagensDoSwipe() {
 		menu.scrollDownTelaMenu();
 		menu.selecionaSwipe();
-		assertTrue(base.validateElementExistenceByText_2("a esquerda"));
+		assertTrue(base.checkIfElementIsDisplayedByText("a esquerda"));
 
 		// Swipe esquerda
 		base.swipeLeft();
-		assertTrue(base.validateElementExistenceByText_2("você consegue"));
+		assertTrue(base.checkIfElementIsDisplayedByText("você consegue"));
 
 		// Clicar botão
 		swip.clicaBotaoDireita();
-		assertTrue(base.validateElementExistenceByText_2("Chegar até o fim!"));
+		assertTrue(base.checkIfElementIsDisplayedByText("Chegar até o fim!"));
 
 		// Swipe direita
 		base.swipeRight();
-		assertTrue(base.validateElementExistenceByText_2("você consegue"));
+		assertTrue(base.checkIfElementIsDisplayedByText("você consegue"));
 
 		// Swipe direita
 		base.swipeRight();
-		assertTrue(base.validateElementExistenceByText_2("a esquerda"));
+		assertTrue(base.checkIfElementIsDisplayedByText("a esquerda"));
 	}
 }

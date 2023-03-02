@@ -5,10 +5,10 @@ import com.appium.core.BasePage;
 public class SwipePage extends BasePage {
 
 	public void clicaBotaoDireita() {
-		clickElementByXpathText("›");
+		clickByText("›");
 	}
 
 	public void clicaBotaoEsquerda() {
-		clickElementByXpathText("‹");
+		clickByText("‹");
 	}
 }
