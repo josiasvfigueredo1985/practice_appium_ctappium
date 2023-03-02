@@ -56,7 +56,7 @@ public class MenuPage extends BasePage {
 
 	public void selecionaDragAndDrop() {
 		clickByText("Drag and drop");
-		implicitWaitInMilisec(500);
+		implicitWaitInMilisec(1000);
 	}
 
 	public void selecionaOpcaoEscondida() {

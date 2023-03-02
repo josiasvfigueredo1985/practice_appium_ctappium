@@ -82,6 +82,7 @@ public class FormularioPage extends BasePage {
 	public void clickClock() {
 		implicitWaitInMilisec(500);
 		clickByXpathIndex("7");
+		implicitWaitInMilisec(500);
 	}
 
 	public void selectDayInCalendar(String day) {

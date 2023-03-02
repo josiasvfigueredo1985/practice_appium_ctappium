@@ -28,7 +28,6 @@ public class DragAndDropTest extends BaseTest {
 		assertArrayEquals(estadoInicial, drag.listaDeElementos());
 		drag.dragAndDrop("Esta", "qualquer local desejado.");
 		assertArrayEquals(estadoIntermediario, drag.listaDeElementos());
-
 		drag.dragAndDrop("Faça um clique longo,", "é uma lista");
 		assertArrayEquals(estadoFinal, drag.listaDeElementos());
 	}

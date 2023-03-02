@@ -364,7 +364,6 @@ public class BasePage extends DriverFactory {
 	public void dragAndDrop(String from, String to) {
 		MobileElement start = driver.findElement(By.xpath("//*[@text='" + from + "']"));
 		MobileElement end = driver.findElement(By.xpath("//*[@text='" + to + "']"));
-
 		AndroidTouchAction dragDrop = new AndroidTouchAction(driver);
 		dragDrop.longPress(element(start)).moveTo(element(end)).release().perform();
 		implicitWaitInMilisec(500);
