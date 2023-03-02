@@ -217,7 +217,10 @@ public class BasePage extends DriverFactory {
 	}
 
 	public void clickByXpathIndex(String index) {
-		driver.findElement(By.xpath("//*[@index='" + index + "']")).click();
+		WebDriverWait w = new WebDriverWait(driver, 3);
+		w.until(ExpectedConditions
+				.elementToBeClickable(By.xpath("//*[@index='" + index + "']")))
+				.click();
 	}
 
 	// endregion

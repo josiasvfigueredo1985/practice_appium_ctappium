@@ -69,7 +69,7 @@ public class FormularioPage extends BasePage {
 	}
 
 	public void clickClock() {
-		explicitWaitXpath("//*[@text='09:00']");
+		implicitWaitInMilisecs(30);
 		clickByXpathIndex("7");
 	}
 

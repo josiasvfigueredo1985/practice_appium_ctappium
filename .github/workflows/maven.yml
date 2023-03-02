@@ -36,9 +36,9 @@ jobs:
         cores: 2
         ram-size: 4096M
         script: mvn site
-    - name: 'Upload Artifact'
+    - name: 'Upload Test Results'
       uses: actions/upload-artifact@v3
       with:
-        name: test_results
+        name: Appium_Test_Results
         path: ${{ github.workspace }}/target/site/*
         retention-days: 5

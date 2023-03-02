@@ -5,7 +5,6 @@ import java.net.URL;
 import java.util.TimeZone;
 
 import org.openqa.selenium.remote.DesiredCapabilities;
-
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.AutomationName;
@@ -27,7 +26,7 @@ public class DriverFactory {
 		String APP = Utils.returnCurrentDir() + "/src/test/java/resources/CTAppium_2_0.apk";
 
 		DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
-		desiredCapabilities.setCapability("timezone", "UTC-03:00");
+		desiredCapabilities.setCapability("timezone", "GMT-03:00");
 		desiredCapabilities.setCapability("platformName", "Android");
 		desiredCapabilities.setCapability("deviceName", "Android Emulator");
 		desiredCapabilities.setCapability("automationName", "UiAutomator2");// uiautomator2
