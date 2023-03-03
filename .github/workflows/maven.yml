@@ -33,7 +33,7 @@ jobs:
         target: ${{ matrix.target }}
         arch: x86_64
         profile: pixel_xl
-        cores: 4
+        cores: 2
         ram-size: 4000M
         script: mvn site
     - name: 'Upload Test Results'
