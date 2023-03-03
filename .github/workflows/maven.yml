@@ -34,7 +34,7 @@ jobs:
         arch: x86_64
         profile: pixel_xl
         cores: 4
-        ram-size: 4096M
+        ram-size: 4000M
         script: mvn site
     - name: 'Upload Test Results'
       uses: actions/upload-artifact@v3
