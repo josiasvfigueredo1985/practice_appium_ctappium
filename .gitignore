@@ -1,5 +1,5 @@
 target/generated-test-sources
 target/maven-status
 target/screenshots
-target/surefire-reports
 target/site
+target/surefire-reports
